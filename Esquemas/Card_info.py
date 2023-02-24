@@ -6,6 +6,7 @@ db = SqliteDatabase('Credict_cards.db')
 
 class card_info(Model):
     User_name = CharField(User)
+    User_name = CharField(User)
     Num_plastic = CharField(unique=True)
     cvv = CharField()
     date_expired = CharField()
@@ -13,7 +14,6 @@ class card_info(Model):
 
     class Meta:
         database = db
-
 def generador_plastico():
     # Generar el primer dígito aleatorio entre 3 y 6 (para tarjetas de crédito)
     primer_digito = '4' + str(random.randint(3, 6))

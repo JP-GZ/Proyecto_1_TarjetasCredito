@@ -15,6 +15,7 @@ class User(Model):
     User_account = CharField()
     User_password = CharField()
     User_password =  CharField()
+    User_password =  CharField()
 
     class Meta:
         database = db
