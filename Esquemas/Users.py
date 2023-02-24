@@ -11,11 +11,9 @@ class User(Model):
     User_RFC = CharField(unique=True)
     User_Curp = CharField(unique=True)
     User_Phone = CharField(unique=True)
-    Email = CharField(unique=True)
-    User_account = CharField()
-    User_password = CharField()
-    User_password =  CharField()
-    User_password =  CharField()
+    Email = CharField()
+    account = CharField()
+    password = CharField()
 
     class Meta:
         database = db
