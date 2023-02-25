@@ -4,7 +4,6 @@ from Esquemas.Card_info import card_info
 db = SqliteDatabase('Credict_cards.db')
 
 class account(Model):
-
     balance = CharField()
     credit_limit = CharField()
     cutoff_date = DateTimeField()

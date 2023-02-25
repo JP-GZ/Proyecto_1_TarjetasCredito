@@ -1,5 +1,6 @@
 from Esquemas.Card_info import card_info as cd
 from Esquemas.Users import User
+import random
 
 
 
@@ -8,7 +9,7 @@ class Cardinfo_controller:
 
     def __init__(self):
         pass
-    def generador_plastico(self):
+    def generador_plastico(self : None):
         # Generar el primer dígito aleatorio entre 3 y 6 (para tarjetas de crédito)
         primer_digito = '4' + str(random.randint(3, 6))
         siguientes_digitos = "".join([str(random.randint(0, 9)) for i in range(13)])
@@ -26,5 +27,5 @@ class Cardinfo_controller:
         numero_tarjeta += str(digito_verificacion)
         return (numero_tarjeta)
 
-    def cvv(self):
+    def cvv(self:None):
         return ("".join([str(random.randint(0, 9)) for i in range(3)]))
