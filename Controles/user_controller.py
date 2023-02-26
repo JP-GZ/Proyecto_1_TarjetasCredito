@@ -1,5 +1,5 @@
 from Esquemas.Users import User
-
+from datetime import datetime
 
 class UserController:
 
@@ -8,7 +8,6 @@ class UserController:
         new_user =User(
         First_name= name.split()[0],
         Second_name = name.split()[1],
-            #TODO: Si el nimbre no tiene segundo nombre agregar una condicional
         Last_name =" ".join(name.split()[-2:]),
         Birthdate = Birthdate,
         User_RFC =RFC,
@@ -16,7 +15,6 @@ class UserController:
         User_Phone =phone,
         Email =email,
         account =account,
-        password =password
-     )
+        password =password )
         new_user.save()
         return new_user
