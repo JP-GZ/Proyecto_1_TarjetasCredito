@@ -1,7 +1,7 @@
 from peewee import *
 from Esquemas.Users import User
 from Esquemas.Card_info import card
-db = SqliteDatabase('Credict_cards.db')
+db = SqliteDatabase("./db/Credit_cards.db")
 
 class account(Model):
     user = ForeignKeyField(User,backref='User')

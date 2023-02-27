@@ -1,5 +1,6 @@
 from datetime import datetime
 
+from Simulador.Simulador import simulador
 from Controles.Card_info_controller import Cardinfo_controller as CC
 from Controles.Account_controller import AccountController as AC
 from Controles.user_controller import UserController as UC
@@ -26,10 +27,13 @@ migrations
 #                        password='123456')
 
 
-for u in User.select():
-    print(u.First_name,u.User_RFC)
+#for u in User.select():
+#    print(u.First_name,u.User_RFC)
+
 
 
 # En teoria debido a que los datos contienen datos unicos
 # la base no se debe de agregar 2 veces el mismo nombre
 # con los mismos datos
+
+print(simulador.generador_plastico(1))

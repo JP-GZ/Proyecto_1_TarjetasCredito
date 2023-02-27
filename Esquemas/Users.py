@@ -1,6 +1,6 @@
 from peewee import *
 
-db = SqliteDatabase('Credict_cards.db')
+db = SqliteDatabase("./db/Credit_cards.db")
 
 class User(Model):
     Name = CharField()
