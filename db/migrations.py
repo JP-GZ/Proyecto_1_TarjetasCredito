@@ -1,8 +1,8 @@
 from peewee import SqliteDatabase
 
 from Esquemas.Users import User
-from Esquemas.Card_info import card_info
+from Esquemas.Card_info import card
 from Esquemas.Account import account
 
 db = SqliteDatabase('Credict_cards.db')
-db.create_tables([User])
+db.create_tables([User,card,account])

@@ -1,16 +1,15 @@
-from datetime import  datetime
-from Esquemas.Account import account as ac
+from Esquemas.Account import account
+from Esquemas.Users import User
+from datetime import datetime
 
 
-class account_controll:
-
-    def add_account(balance:int,cred_lim:int,date:datetime,income:int,BC:bool):
-        account = ac(
-        balance=balance,
-        credit_limit = cred_lim,
-        cutoff_date = date,
-        estimated_income = income,
-        Status_BC = BC,
-        )
-        account.save()
-        return account
+class AccountController:
+    @staticmethod
+    def create_account(balance:float,credit_limit:float,cutoff_date:datetime,estimated_income:float,Status_BC=bool) -> account:
+        new_account = account(Balance = balance,
+                       Credit_limit = credit_limit,
+                       Cutoff_date = cutoff_date,
+                       Estimated_income = estimated_income,
+                       Status_BC = Status_BC)
+        new_account.save()
+        return new_account

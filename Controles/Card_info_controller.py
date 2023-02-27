@@ -1,4 +1,5 @@
-from Esquemas.Card_info import card_info as cd
+
+from Esquemas.Card_info import card as cd
 from Esquemas.Users import User
 import random
 from datetime import datetime

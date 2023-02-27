@@ -1,18 +1,20 @@
 import random
 from peewee import *
 from Esquemas.Users import User
+
 db = SqliteDatabase('Credict_cards.db')
 
 
-class card_info(Model):
-    User_name = CharField(User)
-    Num_plastic = CharField(unique=True)
+class card(Model):
+    User_name = CharField()
+    Num_plastic = CharField() #Unique
     cvv = CharField()
     date_expired = CharField()
     NIP = CharField()
 
     class Meta:
         database = db
+
     def generador_plastico(self):
         # Generar el primer dígito aleatorio entre 3 y 6 (para tarjetas de crédito)
         primer_digito = '4' + str(random.randint(3, 6))

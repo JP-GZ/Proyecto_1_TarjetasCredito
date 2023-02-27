@@ -1,6 +1,6 @@
 from peewee import *
 from Esquemas.Users import User
-from Esquemas.Card_info import card_info
+from Esquemas.Card_info import card
 db = SqliteDatabase('Credict_cards.db')
 
 class account(Model):
