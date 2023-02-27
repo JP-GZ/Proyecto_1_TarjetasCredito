@@ -17,14 +17,15 @@ from Esquemas.Account import account as AT
 
 migrations
 
-# user2 = UC.create_user(name='Juan Pablo Garcia Zaragoza',
-#                        Birthdate='1998-06-30',
-#                        RFC='GALJ980630',
-#                        Curp='GALJ980630',
-#                        phone='3314564674',
-#                        email='if722489@iteso',
-#                        account='JPGZ',
-#                        password='123456')
+user = UC.create_user(name='Juan Pablo Garcia Zaragoza',
+                        Birthdate='1998-06-30',
+                        RFC='GALJ980630',
+                        Curp='GALJ980630',
+                        phone='3314564674',
+                        email='if722489@iteso',
+                        account='JPGZ',
+                        password='123456')
+
 
 
 #for u in User.select():

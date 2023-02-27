@@ -12,6 +12,7 @@ class User(Model):
     Email = CharField()
     account = CharField()
     password = CharField()
+    estimated_income = FloatField()
 
     class Meta:
         database = db
