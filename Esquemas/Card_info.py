@@ -6,10 +6,10 @@ db = SqliteDatabase('Credict_cards.db')
 
 
 class card(Model):
-    User_name = CharField()
+    User_name = ForeignKeyField(User,backref='User')
     Num_plastic = CharField() #Unique
     cvv = CharField()
-    date_expired = CharField()
+    date_expired = DateTimeField()
     NIP = CharField()
 
     class Meta:
@@ -37,4 +37,4 @@ class card(Model):
         return ("".join([str(random.randint(0, 9)) for i in range(3)]))
 
     def NIP(self):
-        return ("".join([str(random.randint(0, 9)) for i in range(3)]))
+        return ("".join([str(random.randint(0, 9)) for i in range(4)]))

@@ -26,8 +26,10 @@ user2 = UC.create_user(name='Juan Pablo Garcia Zaragoza',
                        password='123456')
 
 
+
 for u in User.select():
     print(u.First_name,u.User_RFC)
+
 
 # En teoria debido a que los datos contienen datos unicos
 # la base no se debe de agregar 2 veces el mismo nombre
