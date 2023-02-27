@@ -4,11 +4,16 @@ from Esquemas.Card_info import card
 db = SqliteDatabase('Credict_cards.db')
 
 class account(Model):
+    user = ForeignKeyField(User,backref='User')
+    card = ForeignKeyField(card,backref="User")
     balance = CharField()
+    limit_date=DateTimeField()
     credit_limit = CharField()
-    cutoff_date = DateTimeField()
-    estimated_income = DateTimeField()
-    Status_BC = BooleanField()
+    remaining_credit = FloatField()
+    minimum = FloatField()
+    minimum_interest = FloatField()
+    status_BC = BooleanField()
+    usage = FloatField()
 
     class Meta:
         database = db

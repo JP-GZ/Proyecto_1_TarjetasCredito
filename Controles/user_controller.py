@@ -5,15 +5,14 @@ from datetime import datetime
 class UserController:
 
     @staticmethod
-    def create_user(name: str, Birthdate: str, RFC: str, Curp: str, phone: str, email: str, account: str,
+    def create_user(name: str, RFC: str,Birthdate: datetime,Address:str,Curp: str, phone: str, email: str, account: str,
                     password: str):
-        new_user = User(First_name=name.split()[0],
-                        Second_name=name.split()[1],
-                        Last_name=" ".join(name.split()[-2:]),
+        new_user = User(Name=name,
+                        RFC=RFC,
                         Birthdate=Birthdate,
-                        User_RFC=RFC,
-                        User_Curp=Curp,
-                        User_Phone=phone,
+                        Address=Address,
+                        Curp=Curp,
+                        Phone=phone,
                         Email=email,
                         account=account,
                         password=password)

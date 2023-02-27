@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from Controles.Card_info_controller import Cardinfo_controller as CC
-from Controles.Account_controller_1 import account_controll as AC
+from Controles.Account_controller import AccountController as AC
 from Controles.user_controller import UserController as UC
 
 from db import migrations
@@ -16,15 +16,14 @@ from Esquemas.Account import account as AT
 
 migrations
 
-user2 = UC.create_user(name='Juan Pablo Garcia Zaragoza',
-                       Birthdate='1998-06-30',
-                       RFC='GALJ980630',
-                       Curp='GALJ980630',
-                       phone='3314564674',
-                       email='if722489@iteso',
-                       account='JPGZ',
-                       password='123456')
-
+# user2 = UC.create_user(name='Juan Pablo Garcia Zaragoza',
+#                        Birthdate='1998-06-30',
+#                        RFC='GALJ980630',
+#                        Curp='GALJ980630',
+#                        phone='3314564674',
+#                        email='if722489@iteso',
+#                        account='JPGZ',
+#                        password='123456')
 
 
 for u in User.select():
