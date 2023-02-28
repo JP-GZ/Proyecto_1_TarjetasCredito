@@ -1,5 +1,4 @@
 from datetime import datetime, timedelta
-import faker
 
 from Controles.Card_info_controller import Cardinfo_controller as CC
 from Controles.Account_controller import AccountController as AC
