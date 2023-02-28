@@ -1,13 +1,18 @@
 from datetime import datetime
+
+from peewee import SqliteDatabase
+from db import migrations
+
 from Controles.user_controller import UserController
 from Esquemas.Users import User
-from db import migrations
+
 
 def test_create_user():
     # Arrange
-    migrations
-    user = UserController.create_user(name= "Luisito",Birthdate="03-07-2000",RFC="XAXX010101000",Address='por ahi',Curp="XXXX000703XXXXXX",
-                                      phone="3314778442",email="luis@hotmail.com",account="XXXXXXX",password="luis123")
+    user = UserController.create_user(name="Luisito", Birthdate="03-07-2000", RFC="XAXX010101000", Address='por ahi',
+                                      Curp="XXXX000703XXXXXX",
+                                      phone="3314778442", email="luis@hotmail.com", account="XXXXXXX",
+                                      password="luis123", estimated_income=1000)
 
     # Act
     created_user = User.select().where(User.id == user.id).get()
@@ -24,6 +29,4 @@ def test_create_user():
     assert user.password == created_user.password
 
     # Delete test instances
-
-
-
+    created_user.delete_instance()

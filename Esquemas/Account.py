@@ -1,13 +1,13 @@
 from peewee import *
 from Esquemas.Users import User
-from Esquemas.Card_info import card
+
 db = SqliteDatabase("./db/Credit_cards.db")
 
-class account(Model):
-    user = ForeignKeyField(User,backref='User')
-    card = ForeignKeyField(card,backref="User")
-    balance = CharField()
-    limit_date=DateTimeField()
+
+class Account(Model):
+    user_id = ForeignKeyField(User, backref='accounts')
+    balance = FloatField()
+    limit_date = DateTimeField()
     credit_limit = CharField()
     remaining_credit = FloatField()
     minimum = FloatField()
@@ -17,17 +17,3 @@ class account(Model):
 
     class Meta:
         database = db
-
-
-
-
-
-
-
-
-
-
-
-
-
-
