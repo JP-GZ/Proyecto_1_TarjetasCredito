@@ -56,16 +56,9 @@ card = CC.add_cardinfo(name_id=cuenta,
                        NIP=CC.NIP()
                        )
 
-
-
-
-
-
-
-
 print("Nombre y RFC usuario:")
 for u in User.select():
-    print(u.id,u.Name, u.RFC)
+    print(u.id, u.Name, u.RFC)
 print("Tarjeta Asociada:")
 for c in CI.select():
     print(c.id, c.name_id, c.plastic)
@@ -74,21 +67,35 @@ transaccion = TC.add_transaction(
     date_time=cuenta.limit_date,
     amount=130
 )
-print(f'Compra por:',transaccion.amount)
+print(f'Compra por:', transaccion.amount)
 
 print("Balance Usuario:")
 for a in AT.select():
-    print(a.id,a.balance)
+    print(a.id, a.balance)
 
 payment = PC.add_payment(
     account_id=cuenta,
     date_time=cuenta.limit_date,
     amount=130
 )
-print(f'Abono por:',payment.amount)
+print(f'Abono por:', payment.amount)
 print("Balance Usuario:")
 for a in AT.select():
-    print(a.id,a.balance)
+    print(a.id, a.balance)
+
+print("Transaccion pasada de lanza")
+
+try:
+    transaccion = TC.add_transaction(
+        account_id=cuenta,
+        date_time=cuenta.limit_date,
+        amount=estimated_income * 100
+    )
+except ValueError as e:
+    print("No salio la transaccion")
+
+for t in Transaction.select():
+    print(t.id, t.amount)
 
 User.delete().execute()
 CI.delete().execute()
