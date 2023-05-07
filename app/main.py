@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-from app.models import RequestEvaluation
 import pandas as pd
-
+from app.models.request_evaluation import RequestEvaluation
 
 app = FastAPI()
 
