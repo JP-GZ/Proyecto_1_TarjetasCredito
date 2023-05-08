@@ -1,21 +1,19 @@
-import pickle
-import pandas as pd
 from fastapi import FastAPI
-from pydantic import BaseModel
 from models.request_evaluation import RequestEvaluation
-from models.amortization import Amortization
+import pandas as pd
 from models.amortization import *
-import tranformers
 
 app = FastAPI()
 
 # with open('../models/model.pkl','rb') as file:
 #     model = pickle.load(file, encoding='latin1')
-model = pd.read_pickle(open('models/model.pkl', 'rb'))
+model = pd.read_pickle(open('./models/model.pkl', 'rb'))
+
 
 @app.get("/health")
 def checkhealt():
-    return{"isalive": True}
+    return {"isalive": True}
+
 
 @app.post("/evaluate")
 async def evaluate(req: RequestEvaluation):
@@ -35,21 +33,11 @@ async def evaluate(req: RequestEvaluation):
     print(default_prob)
     amort = Amortization(100_000, 0.5, 12, default_prob)
     opt_rate = Amortization.optimize_expected_irr(0, amort)
-    return {
-        "pd": f"{default_prob*100:.2f} %",
-        "interest_rate": f"{opt_rate*100:.4f} %"
-    }
+    return dict(pd=f"{default_prob * 100:.2f} %", interest_rate=f"{opt_rate * 100:.4f} %")
 
-
-# comand uvicorn app.main:app --reload --port 8899
+# comand uvicorn app.app:app --reload --port 8899
 
 # en postamn/ headers poner json y en body poner el json con la informacion
 
 
-# model = model.pkl
-
-
-#dentro de utils ponemos la clase de amortizacion
-
-# falto agregar arriba del amort df = pred[1]
-# dfdf
+# dentro de utils ponemos la clase de amortizacion

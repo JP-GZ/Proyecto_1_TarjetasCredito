@@ -23,10 +23,11 @@ def geometric(a,i,n):
     r = 1 + i
     return a * (1 - r ** (n + 1)) / (1 - r)
 class Amortization:
-    def __init__(self, amount: float, rate: float, t: int):
+    def __init__(self, amount: float, rate: float, t: int, default_prob: float):
         self.amount = amount
         self.rate = rate
-        self.t = t    @property
+        self.t = t
+        self.default_prob = default_prob
     def payment_amount(self) -> float:
         return self.amount * self.rate / (1 - (1 + self.rate) ** -self.t)
     def to_dataframe(self, default_prob: float) -> pd.DataFrame:
